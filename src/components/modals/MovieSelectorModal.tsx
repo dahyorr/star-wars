@@ -52,13 +52,14 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
     <BaseModal 
       open={open} 
       onClose={onClose}
-      maxWidth="md"
+      maxWidth="xs"
       loading={loading}  
     >
       <List 
         sx={{
           minHeight: 200,
-          minWidth: 300,
+          mWidth: 200,
+          overflow: 'hidden',
         }}
       >
         {movies.map(movie => (

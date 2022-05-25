@@ -84,7 +84,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           lineHeight: '150%',
           position: 'relative',
           top: '100px',
-          visibility: 'hidden',
+          // visibility: 'hidden',
           // transformOrigin: '50% 100%',
           animation: `crawl ${animationDuration}s linear`,
           animationDelay: '1s',
@@ -99,7 +99,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
               top: `-${window.innerHeight + crawlHeight + 50}px`,
               transform: 'rotateX(25deg) translateZ(-2500px)',
               display: 'block',
-              
+              visibility: 'visible'
             }
           }
         }}
@@ -109,7 +109,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           align="center"
           color="primary"
           fontWeight='bold'
-          fontSize={40}
+          fontSize={"2.5rem"}
           mb={1}
         >
           Episode {convertToRomanNumeral(episodeId)}
@@ -118,7 +118,6 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           align="center"
           color="primary"
           fontWeight='bold'
-          fontSize={55}
           mb={2}
           variant="h1"
         >
@@ -128,7 +127,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           align="justify"
           color="primary"
           fontWeight='bold'
-          fontSize={45}
+          fontSize={"2.5rem"}
         >
           {text}
         </Typography>

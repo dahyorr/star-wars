@@ -1,4 +1,4 @@
-import { Paper, Stack, Button } from '@mui/material'
+import {Stack, Button } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import React, { useState, useEffect, useCallback } from 'react'
 import CharacterTable from './CharacterTable'
@@ -50,19 +50,10 @@ const CharacterList: React.FC<CharacterListProps> = ({movie, setSelectedMovie}) 
         justifyContent: 'space-evenly',
       }}
     >
-      <Paper
-        sx={{
-          width: '100%',
-          height: '85vh',
-          minHeight: '85vh',
-          px: 2,
-        }}
-      >
-        <CharacterTable
-          data={charactersData}
-          title={movie.title}
-        />
-      </Paper>
+      <CharacterTable
+        data={charactersData}
+        title={movie.title}
+      />
 
       <Button
         variant="outlined"

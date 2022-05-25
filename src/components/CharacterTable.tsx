@@ -60,7 +60,7 @@ const CharacterTable: React.FC<TableProps> = ({data, title}) => {
         search: false,
         viewColumns: false,
         filter: true,
-        responsive: 'standard',
+        responsive: 'simple',
         tableBodyMaxHeight: '71vh',
         tableBodyHeight: '71vh',
         customFooter: () => <CustomTableFooter
