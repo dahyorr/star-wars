@@ -84,6 +84,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           lineHeight: '150%',
           position: 'relative',
           top: '100px',
+          visibility: 'hidden',
           // transformOrigin: '50% 100%',
           animation: `crawl ${animationDuration}s linear`,
           animationDelay: '1s',
@@ -91,10 +92,14 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
             '0%': {
               top: '100vh',
               transform: 'rotateX(20deg) translateZ(0)',
+              display: 'block',
+              visibility: 'visible'
             },
             '100%': { 
               top: `-${window.innerHeight + crawlHeight + 50}px`,
               transform: 'rotateX(25deg) translateZ(-2500px)',
+              display: 'block',
+              
             }
           }
         }}

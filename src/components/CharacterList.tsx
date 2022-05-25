@@ -1,4 +1,5 @@
 import { Paper, Stack, Button } from '@mui/material'
+import HomeIcon from '@mui/icons-material/Home';
 import React, { useState, useEffect, useCallback } from 'react'
 import CharacterTable from './CharacterTable'
 import axios from 'axios';
@@ -8,9 +9,10 @@ import { useSnackbar } from 'notistack';
 
 interface CharacterListProps {
   movie: Movie,
+  setSelectedMovie: (value: Movie | undefined) => void,
 }
 
-const CharacterList: React.FC<CharacterListProps> = ({movie}) => {
+const CharacterList: React.FC<CharacterListProps> = ({movie, setSelectedMovie}) => {
   const characters = movie.characters;
   const [loading, setLoading] = useState(true)
   const [charactersData, setCharactersData] = useState<Character[]>([])
@@ -52,16 +54,14 @@ const CharacterList: React.FC<CharacterListProps> = ({movie}) => {
         sx={{
           width: '100%',
           height: '85vh',
-          maxHeight: '85vh',
-          overflowY: 'auto',
-          p: 2,
+          minHeight: '85vh',
+          px: 2,
         }}
       >
-          <CharacterTable
-            data={charactersData}
-            title={movie.title}
-          />
-
+        <CharacterTable
+          data={charactersData}
+          title={movie.title}
+        />
       </Paper>
 
       <Button
@@ -69,6 +69,8 @@ const CharacterList: React.FC<CharacterListProps> = ({movie}) => {
         sx={{
           alignSelf: "center"
         }}
+        onClick={() => setSelectedMovie(undefined)}
+        startIcon={<HomeIcon />}
       >
         Home
       </Button>

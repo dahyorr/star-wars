@@ -14,14 +14,17 @@ const CustomTableFooter: React.FC<CustomTableFooterProps> = ({
   totalHeight,
   noOfCharacters
 }) => {
+  const totalHeightInFeet = Math.floor(cmToFeet(totalHeight));
+  const totalHeightInInches = Math.floor(cmToInches(totalHeight))
+
   return (
     <TableFooter>
       <TableRow>
-        <TableCell align='center'>
+        <TableCell align='center' sx={{border: 'none'}}>
           <Typography>Number of Characters: {noOfCharacters}</Typography>
         </TableCell>
-        <TableCell align='center'>
-          <Typography>Total Height: {totalHeight}cm({Math.floor(cmToFeet(totalHeight))}ft, {Math.floor(cmToInches(totalHeight))}in)</Typography>
+        <TableCell align='center' sx={{border: 'none'}}>
+          <Typography>Total Height: {totalHeight} cm ({totalHeightInFeet} ft, {totalHeightInInches} in)</Typography>
         </TableCell>
       </TableRow>
     </TableFooter>

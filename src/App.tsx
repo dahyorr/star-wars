@@ -63,6 +63,7 @@ const App = () => {
           {!displayCrawl && (
           <CharacterList
             movie={selectedMovie}
+            setSelectedMovie={setSelectedMovie}
           />)}
         </>)}
 
