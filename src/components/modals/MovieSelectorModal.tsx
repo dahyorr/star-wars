@@ -29,7 +29,8 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
   }
 
   useEffect(() => {
-    fetchMovieList()
+    if(open){
+      fetchMovieList()
       .then(res => {
         const results = res.data.results
         setMovies(results.sort(sortByYear));
@@ -41,7 +42,8 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
       .finally(() => {
         setLoading(false)
       })
-  }, [enqueueSnackbar])
+    }
+  }, [enqueueSnackbar, open])
 
   const onMovieSelect = (movie: Movie) => {
     setSelectedMovie(movie)

@@ -48,7 +48,8 @@ const CharacterList: React.FC<CharacterListProps> = ({movie, setSelectedMovie}) 
         height: '100%',
         display: 'flex',
         justifyContent: 'space-evenly',
-        py: 2
+        width: '100%',
+        my: 2
       }}
       spacing={1.5}
     >
