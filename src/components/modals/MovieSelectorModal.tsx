@@ -58,7 +58,7 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
       <List 
         sx={{
           minHeight: 200,
-          mWidth: 200,
+          minWidth: 200,
           overflow: 'hidden',
         }}
       >

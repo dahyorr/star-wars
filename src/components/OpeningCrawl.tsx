@@ -109,7 +109,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           align="center"
           color="primary"
           fontWeight='bold'
-          fontSize={"2.5rem"}
+          fontSize={"2.25rem"}
           mb={1}
         >
           Episode {convertToRomanNumeral(episodeId)}
@@ -119,7 +119,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           color="primary"
           fontWeight='bold'
           mb={2}
-          variant="h1"
+          variant="h4"
         >
           {title.toUpperCase()}
         </Typography>
@@ -127,7 +127,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           align="justify"
           color="primary"
           fontWeight='bold'
-          fontSize={"2.5rem"}
+          fontSize={"2.25rem"}
         >
           {text}
         </Typography>
