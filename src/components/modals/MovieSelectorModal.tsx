@@ -29,7 +29,7 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
   }
 
   useEffect(() => {
-    if(open){
+    if(open && movies.length < 1){
       fetchMovieList()
       .then(res => {
         const results = res.data.results
@@ -43,7 +43,7 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
         setLoading(false)
       })
     }
-  }, [enqueueSnackbar, open])
+  }, [enqueueSnackbar, open, movies])
 
   const onMovieSelect = (movie: Movie) => {
     setSelectedMovie(movie)

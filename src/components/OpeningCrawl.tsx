@@ -84,7 +84,7 @@ const OpeningCrawl: React.FC<OpeningCrawlProps> = ({
           lineHeight: '150%',
           position: 'relative',
           top: '100px',
-          // visibility: 'hidden',
+          visibility: 'hidden',
           // transformOrigin: '50% 100%',
           animation: `crawl ${animationDuration}s linear`,
           animationDelay: '1s',

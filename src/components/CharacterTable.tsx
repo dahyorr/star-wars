@@ -61,8 +61,8 @@ const CharacterTable: React.FC<TableProps> = ({data, title}) => {
         viewColumns: false,
         filter: true,
         responsive: 'simple',
-        tableBodyMaxHeight: '67vh',
-        tableBodyHeight: '67vh',
+        tableBodyMaxHeight: '62vh',
+        tableBodyHeight: '62vh',
         customFooter: () => <CustomTableFooter
           totalHeight={totalHeight}
           noOfCharacters={data.length}
