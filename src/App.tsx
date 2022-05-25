@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import { Box, Container } from '@mui/material';
+import Landing from 'components/Landing';
+import MovieSelectorModal from 'components/modals/MovieSelectorModal';
+import {useDisclosure} from 'hooks'
+import { Movie } from 'typings';
+import OpeningCrawl from 'components/OpeningCrawl';
 
-function App() {
+const App = () => {
+  const {
+    onOpen: movieSelectorOnOpen,
+    onClose: movieSelectorOnClose,
+    isOpen: movieSelectorIsOpen
+  } = useDisclosure();
+  const [selectedMovie, setSelectedMovie] = useState<Movie>()
+
+  const handleMovieSelectorOpen = () => {
+    console.log('handleMovieSelectorOpen')
+    movieSelectorOnOpen();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box height="100vh" width="100vw">
+      <Container 
+        maxWidth="xl" 
+        sx={{
+          maxHeight: '100%',
+          height: '100%',
+        }}
+      >
+        {!selectedMovie 
+        ? (<Landing
+          handleMovieSelectorOpen={handleMovieSelectorOpen}
+          selectedMovie={selectedMovie}
+        />)
+        : (<OpeningCrawl/>)}
+        <MovieSelectorModal
+          onClose={movieSelectorOnClose}
+          open={movieSelectorIsOpen}
+          setSelectedMovie={setSelectedMovie}
+        />
+      </Container>
+    </Box>
   );
 }
 
