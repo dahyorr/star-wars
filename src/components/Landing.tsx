@@ -15,44 +15,45 @@ const Landing: React.FC<LandingProps> = ({
 }) => {
   
   return (
-      <Stack 
-        component={motion.div}
+    <Stack 
+      component={motion.div}
+      sx={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      spacing={4}
+      initial={{ opacity: 0, scale: 0 }}
+      exit={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <Box
         sx={{
-          height: '100%',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          maxWidth: 860,
+          px: 2,
+          '& img': {
+            width: '100%',
+            height: 'auto'
+          }
         }}
-        spacing={4}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.25 }}
       >
-        <Box
-          sx={{
-            maxWidth: 860,
-            px: 2,
-            '& img': {
-              width: '100%',
-              height: 'auto'
-            }
-          }}
-        >
-          <img src={starWarsLogo} alt="Star Wars Logo" />
-        </Box>
-        {!selectedMovie && <Button
-          onClick={handleMovieSelectorOpen}
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            px: 6
-          }}
-        >
-          Choose a movie
-        </Button>}
-      </Stack>
+        <img src={starWarsLogo} alt="Star Wars Logo" />
+      </Box>
+      {!selectedMovie && <Button
+        onClick={handleMovieSelectorOpen}
+        variant="contained"
+        color="primary"
+        size="large"
+        sx={{
+          px: 6
+        }}
+      >
+        Choose a movie
+      </Button>}
+    </Stack>
   )
 }
 

@@ -4,6 +4,7 @@ import BaseModal from './BaseModal'
 import { Movie } from 'typings';
 import { fetchMovieList } from 'api';
 import {useSnackbar} from 'notistack';
+import dayjs from 'dayjs'
 
 interface MovieSelectorModalProps{
   open: boolean,
@@ -20,11 +21,18 @@ const MovieSelectorModal: React.FC<MovieSelectorModalProps> = ({
   const [movies, setMovies] = useState<Movie[]>([]);
   const {enqueueSnackbar} = useSnackbar();
 
+  const sortByYear = (a: Movie, b: Movie) => {
+    if(dayjs(a.release_date) > dayjs(b.release_date)){
+      return 1;
+    }
+    return -1;
+  }
+
   useEffect(() => {
     fetchMovieList()
       .then(res => {
         const results = res.data.results
-        setMovies(results);
+        setMovies(results.sort(sortByYear));
       })
       .catch(err => {
         console.log(err)
